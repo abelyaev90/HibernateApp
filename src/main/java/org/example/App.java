@@ -20,15 +20,10 @@ public class App
 
         try{
             session.beginTransaction();
-            Person person1 = new Person("Ivan", 30);
-            Person person2 = new Person("Tom", 20);
-            Person person3 = new Person("Petr", 50);
-
-            session.save(person1);
-            session.save(person2);
-            session.save(person3);
-
+            Person person = new Person("Ded", 150);
+            session.persist(person);
             session.getTransaction().commit();
+            System.out.println(person.getId());
         }
         finally {
             sessionFactory.close();
